@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Login</title>
+	<style>
+		body {
+			font-family: Arial, sans-serif;
+			background-color: #f7f7f7;
+            background-image: url('https://images.unsplash.com/photo-1523821741446-edb2b68bb7a0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80');
+		    background-size: cover;
+		}
+        header {
+			background-color: #332F53;
+			color: #fff;
+			padding: 16px;
+			position: fixed;
+			top: 0;
+			left: 0;
+			right: 0;
+			z-index: 9999;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+        }
+        .container {
+			margin: 120px auto 0;
+			max-width: 700px;
+			padding: 20px;
+			background-color: #fff;
+			box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+            opacity: 0.7;
+        }
+		label {
+			display: block;
+			margin-bottom: 10px;
+			font-weight: bold;
+		}
+		input[type="text"], input[type="password"] {
+			width: 100%;
+			padding: 10px;
+			margin-bottom: 20px;
+			border: 1px solid #ccc;
+			border-radius: 5px;
+			box-sizing: border-box;
+		}
+		input[type="submit"] {
+			background-color: #3589be;
+			color: white;
+			padding: 10px 20px;
+			border: none;
+			border-radius: 5px;
+			cursor: pointer;
+			float: right;
+		}
+		input[type="submit"]:hover {
+			background-color: #3589be;
+		}
+		.error {
+			color: red;
+			margin-bottom: 10px;
+			font-weight: bold;
+		}
+	</style>
+</head>
+<body>
+    <header>
+		<h1>Language Detector and Translator </h1>
+	</header>
+    <br>
+    <div class="container">
+	<form method="POST">
+		<h1>Login</h1>
+		<label>Username</label>
+		<input type="text" name="username" required>
+		<label>Password</label>
+		<input type="password" name="password" required>
+		<input type="submit" value="Login">
+        <a href="/register">New User ? Register Here</a>
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                {% for message in messages %}
+                    <div class="flash">{{ message }}</div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+	</form>
+</div>
+</body>
+</html>
